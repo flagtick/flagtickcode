@@ -21,12 +21,8 @@ function assetsPath(_path) {
 }
 
 if (process.env.NODE_ENV == "production") {
-	//需要做打包分析时、用个插件
 	plugins = [new BundleAnalyzerPlugin(), new CleanWebpackPlugin()];
-	//plugins = [new CleanWebpackPlugin()];
 } else if (process.env.NODE_ENV == "development") {
-	// const vendorManifest = require("./dist/json/vendor-manifest.json");
-	// plugins = [new webpack.DllReferencePlugin({ manifest: vendorManifest })];
 }
 
 plugins = plugins.concat([
@@ -59,7 +55,7 @@ module.exports = {
 		app: "./src/index.js",
 	},
 	mode: process.env.NODE_ENV,
-	
+
 	output: {
 		filename: "modules/[name].[hash].js",
 		publicPath: "/",
